@@ -1,13 +1,11 @@
 using UnityEngine;
 
-public class FoodSpawnerScript : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
-    public GameObject food;
+    public GameObject enemy;
     public float spawnRate = 2f;
     private float nextSpawnTime;
     private float screenMinX, screenMaxX, screenMinY, screenMaxY;
-
-    // Start is called before the first frame update
     void Start()
     {
         Camera cam = Camera.main;
@@ -22,23 +20,22 @@ public class FoodSpawnerScript : MonoBehaviour
     {
         if (Time.time > nextSpawnTime)
         {
-            SpawnFood(5f);
+            SpawnEnemy(1f, 100f);
             nextSpawnTime = Time.time + spawnRate;
         }
     }
 
-    public void SpawnFood(float duration)
+    public void SpawnEnemy(float speed, float health)
     {
         float x = Random.Range(screenMinX, screenMaxX);
         float y = Random.Range(screenMinY, screenMaxY);
         Vector2 spawnPosition = new Vector2(x, y);
-
-        GameObject foodPreFab = Instantiate(food, spawnPosition, Quaternion.identity);
-
-        FoodScript foodScript = foodPreFab.GetComponent<FoodScript>();
-        if (foodScript != null)
+        GameObject enemyPreFab = Instantiate(enemy, spawnPosition, Quaternion.identity);
+        EnemyScript enemyScript = enemyPreFab.GetComponent<EnemyScript>();
+        if (enemyScript != null)
         {
-            foodScript.duration = duration;
+            enemyScript.speed = speed;
+            enemyScript.health = health;
         }
     }
 }
