@@ -26,7 +26,7 @@ public class EnemyScript : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            target.GetComponent<PlayerScript>().exp += 5;
+            target.GetComponent<PlayerScript>().IncrementExp(5);
         }
 
         if (target != null)

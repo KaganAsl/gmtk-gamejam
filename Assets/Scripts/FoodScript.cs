@@ -8,6 +8,9 @@ public class FoodScript : MonoBehaviour
     private Slider slider;
     public float foodValue;
     public float foodScaleValue;
+    public SpriteRenderer spriteRenderer;
+    public FoodEffect foodEffect;
+    public float effectDuration = 5f;
 
     void Start()
     {
@@ -29,5 +32,16 @@ public class FoodScript : MonoBehaviour
         {
             slider.value = duration - elapsed;
         }
+    }
+
+    public void SetColor(Color color)
+    {
+        spriteRenderer.color = color;
+    }
+
+    public enum FoodEffect
+    {
+        None,
+        SpeedBoost,
     }
 }

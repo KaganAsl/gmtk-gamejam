@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    public float bulletDamage = 20f;
-    public float bulletShrinkPower = 0.05f;
+    public float bulletDamage;
+    public float bulletShrinkPower;
     void Start()
     {
-        
+        bulletDamage = 20f;
+        bulletShrinkPower = 0.01f;
     }
 
     // Update is called once per frame
