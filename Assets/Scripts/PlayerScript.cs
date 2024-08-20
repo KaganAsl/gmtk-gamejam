@@ -15,9 +15,15 @@ public class PlayerScript : MonoBehaviour
     public float exp = 0f;
     public Image healthBar;
     public Image expBar;
+    public Text healthText;
+    public Text expText;
     public GameObject logic;
     public ShootingScript shootingScript;
     private Coroutine speedBoostCoroutine;
+    public float fireRate = 0.2f;  // Time between shots
+    private float nextFireTime = 0f;
+    public Text speedText;
+    public Text scaleText;
 
     void Start()
     {
@@ -33,11 +39,16 @@ public class PlayerScript : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         RotateTowardsMouse();
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
         {
             Shoot();
+            nextFireTime = Time.time + fireRate;
         }
         expBar.fillAmount = exp / 100f;
+        healthText.text = health.ToString();
+        expText.text = exp.ToString();
+        speedText.text = "Speed: " + moveSpeed.ToString();
+        scaleText.text = "Scale: " + scaleX.ToString("0.00");
     }
 
     void FixedUpdate()
