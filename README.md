@@ -5,7 +5,7 @@
 - [x] Create enemy spawner
 - [x] Create enemy movement
 - [x] Create ability to pick food and growth
-- [ ] Create ability to shoot enemies and shrink
+- [x] Create ability to shoot enemies and shrink
 - [x] Create health bar for player
 - [x] Create enemy to hit player mechanic
 - [ ] Create death game over screen
@@ -16,3 +16,4 @@
 - [ ] Create different enemy types
 - [ ] Create different player skins
 - [ ] Extra abilities for player when leveling up (Choosing between different abilities)
+- [ ] Create secondary weapon

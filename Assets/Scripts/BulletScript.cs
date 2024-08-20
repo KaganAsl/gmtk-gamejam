@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float bulletDamage = 20f;
+    public float bulletShrinkPower = 0.05f;
     void Start()
     {
         
@@ -16,9 +17,13 @@ public class BulletScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Bullet hit something: " + other.gameObject.name);
         if (!(other.gameObject.name.Equals("Food(Clone)") || other.gameObject.name.Equals("Logic")))
         {
+            Destroy(gameObject);
+        }
+        if (other.gameObject.GetComponent<EnemyScript>() != null)
+        {
+            other.gameObject.GetComponent<EnemyScript>().TakeDamage(bulletDamage);
             Destroy(gameObject);
         }
     }

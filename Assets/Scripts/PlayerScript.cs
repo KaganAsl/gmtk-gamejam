@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     public Image healthBar;
     public Image expBar;
     public GameObject logic;
+    public ShootingScript shootingScript;
 
     void Start()
     {
@@ -27,6 +28,10 @@ public class PlayerScript : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         RotateTowardsMouse();
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+        }
     }
 
     void FixedUpdate()
@@ -89,6 +94,17 @@ public class PlayerScript : MonoBehaviour
         {
             Destroy(gameObject);
             Application.Quit();
+        }
+    }
+
+    void Shoot()
+    {
+        if (scaleX >= 1)
+        {
+            shootingScript.Shoot();
+            scaleX -= shootingScript.bulletPrefab.GetComponent<BulletScript>().bulletShrinkPower;
+            scaleY -= shootingScript.bulletPrefab.GetComponent<BulletScript>().bulletShrinkPower;
+            transform.localScale = new Vector3(scaleX, scaleY, transform.localScale.z);
         }
     }
 }

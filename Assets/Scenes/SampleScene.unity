@@ -759,6 +759,7 @@ MonoBehaviour:
   healthBar: {fileID: 1791811060}
   expBar: {fileID: 1107244578}
   logic: {fileID: 150988042}
+  shootingScript: {fileID: 790989872}
 --- !u!212 &790989869
 SpriteRenderer:
   m_ObjectHideFlags: 0

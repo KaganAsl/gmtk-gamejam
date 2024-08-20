@@ -36,4 +36,10 @@ public class EnemyScript : MonoBehaviour
 
         healthBar.value = health;
     }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        target.GetComponent<PlayerScript>().exp += 5;
+    }
 }
