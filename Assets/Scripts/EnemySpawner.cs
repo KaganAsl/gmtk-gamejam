@@ -20,12 +20,12 @@ public class EnemySpawner : MonoBehaviour
     {
         if (Time.time > nextSpawnTime)
         {
-            SpawnEnemy(1f, 100f);
+            SpawnEnemy(1f, 100f, 1f);
             nextSpawnTime = Time.time + spawnRate;
         }
     }
 
-    public void SpawnEnemy(float speed, float health)
+    public void SpawnEnemy(float speed, float health, float damage)
     {
         float x = Random.Range(screenMinX, screenMaxX);
         float y = Random.Range(screenMinY, screenMaxY);
@@ -36,6 +36,7 @@ public class EnemySpawner : MonoBehaviour
         {
             enemyScript.speed = speed;
             enemyScript.health = health;
+            enemyScript.damage = damage;
         }
     }
 }

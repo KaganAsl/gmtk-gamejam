@@ -9,6 +9,7 @@ public class EnemyScript : MonoBehaviour
     public float health;
     public Slider healthBar;
     public GameObject target;
+    public float damage;
     void Start()
     {
         healthBar = GetComponentInChildren<Slider>();

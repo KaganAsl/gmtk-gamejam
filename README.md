@@ -4,10 +4,10 @@
 - [x] Create food spawner and simple food mechanic
 - [x] Create enemy spawner
 - [x] Create enemy movement
-- [ ] Create ability to pick food and growth
+- [x] Create ability to pick food and growth
 - [ ] Create ability to shoot enemies and shrink
-- [ ] Create health bar for player
-- [ ] Create enemy to hit player mechanic
+- [x] Create health bar for player
+- [x] Create enemy to hit player mechanic
 - [ ] Create death game over screen
 - [ ] Create exp system
 - [ ] Create ability to level up
