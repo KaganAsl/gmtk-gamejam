@@ -6,6 +6,8 @@ public class FoodScript : MonoBehaviour
     public float duration;
     private float startTime;
     private Slider slider;
+    public float foodValue;
+    public float foodScaleValue;
 
     void Start()
     {

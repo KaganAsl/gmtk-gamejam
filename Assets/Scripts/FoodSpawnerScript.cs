@@ -22,12 +22,12 @@ public class FoodSpawnerScript : MonoBehaviour
     {
         if (Time.time > nextSpawnTime)
         {
-            SpawnFood(5f);
+            SpawnFood(5f, 2f, 0.1f);
             nextSpawnTime = Time.time + spawnRate;
         }
     }
 
-    public void SpawnFood(float duration)
+    public void SpawnFood(float duration, float foodValue, float foodScaleValue)
     {
         float x = Random.Range(screenMinX, screenMaxX);
         float y = Random.Range(screenMinY, screenMaxY);
@@ -39,6 +39,8 @@ public class FoodSpawnerScript : MonoBehaviour
         if (foodScript != null)
         {
             foodScript.duration = duration;
+            foodScript.foodValue = foodValue;
+            foodScript.foodScaleValue = foodScaleValue;
         }
     }
 }
