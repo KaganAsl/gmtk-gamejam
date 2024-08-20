@@ -44,6 +44,10 @@ public class PlayerScript : MonoBehaviour
             Shoot();
             nextFireTime = Time.time + fireRate;
         }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            BigShoot();
+        }
         expBar.fillAmount = exp / 100f;
         healthText.text = health.ToString();
         expText.text = exp.ToString();
@@ -145,6 +149,18 @@ public class PlayerScript : MonoBehaviour
             shootingScript.Shoot();
             scaleX -= shootingScript.bulletPrefab.GetComponent<BulletScript>().bulletShrinkPower;
             scaleY -= shootingScript.bulletPrefab.GetComponent<BulletScript>().bulletShrinkPower;
+            transform.localScale = new Vector3(scaleX, scaleY, transform.localScale.z);
+        }
+    }
+
+    void BigShoot()
+    {
+        if (scaleX >= 1.65)
+        {
+            shootingScript.ShootBigBullet();
+            scaleX -= shootingScript.bigBulletPrefab.GetComponent<BigBulletScript>().bulletShrinkPower;
+            Debug.Log(shootingScript.bigBulletPrefab.GetComponent<BigBulletScript>().bulletShrinkPower);
+            scaleY -= shootingScript.bigBulletPrefab.GetComponent<BigBulletScript>().bulletShrinkPower;
             transform.localScale = new Vector3(scaleX, scaleY, transform.localScale.z);
         }
     }
