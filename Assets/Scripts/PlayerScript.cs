@@ -1,9 +1,12 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    float originalMoveSpeed;
     public Rigidbody2D rb;
     private Vector2 movement;
     private float scaleX;
@@ -14,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     public Image expBar;
     public GameObject logic;
     public ShootingScript shootingScript;
+    private Coroutine speedBoostCoroutine;
 
     void Start()
     {
@@ -21,6 +25,7 @@ public class PlayerScript : MonoBehaviour
         scaleX = transform.localScale.x;
         scaleY = transform.localScale.y;
         expBar.fillAmount = 0;
+        originalMoveSpeed = moveSpeed;
     }
 
     void Update()
@@ -47,6 +52,14 @@ public class PlayerScript : MonoBehaviour
         if (food != null)
         {
             EatFood(food.foodScaleValue, food.foodValue);
+            if (food.foodEffect == FoodScript.FoodEffect.SpeedBoost)
+            {
+                if (speedBoostCoroutine != null)
+                {
+                    StopCoroutine(speedBoostCoroutine);
+                }
+                speedBoostCoroutine = StartCoroutine(SpeedBoost(food.effectDuration));
+            }
             Destroy(other.gameObject);
         }
         if (enemy != null)
@@ -54,6 +67,14 @@ public class PlayerScript : MonoBehaviour
             TakeDamage(enemy.damage);
         }
     }
+
+    IEnumerator SpeedBoost(float duration)
+    {
+        moveSpeed *= 2; // Increase speed (you can change the multiplier as needed)
+        yield return new WaitForSeconds(duration);
+        moveSpeed = originalMoveSpeed; // Revert to the original speed
+    }
+
 
     void RotateTowardsMouse()
     {

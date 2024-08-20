@@ -1665,6 +1665,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: {fileID: 4882395195808298132, guid: c83393724a7c2034c96a4eca0ec47c08, type: 3}
   spawnRate: 2
+  whiteChance: 80
+  redChance: 10
+  blueChance: 10
 --- !u!1 &2110600710
 GameObject:
   m_ObjectHideFlags: 0
