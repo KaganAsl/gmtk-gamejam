@@ -32,6 +32,7 @@ public class PlayerScript : MonoBehaviour
         {
             Shoot();
         }
+        expBar.fillAmount = exp / 100f;
     }
 
     void FixedUpdate()

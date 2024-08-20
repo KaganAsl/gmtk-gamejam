@@ -26,6 +26,7 @@ public class EnemyScript : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            target.GetComponent<PlayerScript>().exp += 5;
         }
 
         if (target != null)
@@ -40,6 +41,5 @@ public class EnemyScript : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        target.GetComponent<PlayerScript>().exp += 5;
     }
 }
