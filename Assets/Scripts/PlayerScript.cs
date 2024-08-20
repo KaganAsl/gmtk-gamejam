@@ -32,6 +32,7 @@ public class PlayerScript : MonoBehaviour
         {
             Shoot();
         }
+        expBar.fillAmount = exp / 100f;
     }
 
     void FixedUpdate()
@@ -56,18 +57,14 @@ public class PlayerScript : MonoBehaviour
 
     void RotateTowardsMouse()
     {
-        // Get mouse position in world space
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        // Calculate direction from player to mouse
         Vector2 direction = (mousePos - transform.position).normalized;
 
-        // Calculate angle from direction
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         angle -= 90f;
 
-        // Apply rotation to player
         rb.rotation = angle;
     }
 
@@ -94,6 +91,18 @@ public class PlayerScript : MonoBehaviour
         {
             Destroy(gameObject);
             Application.Quit();
+        }
+    }
+
+    public void IncrementExp(float expValue)
+    {
+        if (exp < 100)
+        {
+            exp += expValue;
+            if (exp > 100)
+            {
+                exp = 100;
+            }
         }
     }
 

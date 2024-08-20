@@ -453,7 +453,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 76efa890801ca4747af34bc4143623cb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 790b770def4b1ca4fb4440f980920451, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -479,6 +479,7 @@ MonoBehaviour:
   duration: 5
   foodValue: 0
   foodScaleValue: 0
+  spriteRenderer: {fileID: 1418867826302438579}
 --- !u!61 &9078560162409973998
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -162,4 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDamage: 40
-  bulletShrinkPower: 0.05
+  bulletShrinkPower: 0.01
