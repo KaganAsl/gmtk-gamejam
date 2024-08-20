@@ -2,8 +2,8 @@
 ## To-Do
 - [x] Create player and movement
 - [x] Create food spawner and simple food mechanic
-- [ ] Create enemy spawner
-- [ ] Create enemy movement
+- [x] Create enemy spawner
+- [x] Create enemy movement
 - [ ] Create ability to pick food and growth
 - [ ] Create ability to shoot enemies and shrink
 - [ ] Create health bar for player
