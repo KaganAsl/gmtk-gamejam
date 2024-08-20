@@ -47,6 +47,10 @@ public class PlayerScript : MonoBehaviour
         if (food != null)
         {
             EatFood(food.foodScaleValue, food.foodValue);
+            if (food.foodEffect == FoodScript.FoodEffect.SpeedBoost)
+            {
+                // Player will have a speed boost for duration in food.effectDuration
+            }
             Destroy(other.gameObject);
         }
         if (enemy != null)

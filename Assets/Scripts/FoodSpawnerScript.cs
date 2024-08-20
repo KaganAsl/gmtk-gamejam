@@ -26,6 +26,9 @@ public class FoodSpawnerScript : MonoBehaviour
     public FoodType[] foodTypes = {new FoodType(5f, 2f, 0.1f, Color.white, FoodScript.FoodEffect.None),
                                    new FoodType(2f, 20f, 1f, Color.red, FoodScript.FoodEffect.None), 
                                    new FoodType(3f, 0f, 0f, Color.blue, FoodScript.FoodEffect.SpeedBoost)};
+    public int whiteChance = 80;
+    public int redChance = 10;
+    public int blueChance = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +45,20 @@ public class FoodSpawnerScript : MonoBehaviour
     {
         if (Time.time > nextSpawnTime)
         {
-            SpawnFood(5f, 2f, 0.1f, Color.red);
+            int rand = Random.Range(0, whiteChance + redChance + blueChance);
+            Debug.Log(rand);
+            if (rand < whiteChance)
+            {
+                SpawnFood(foodTypes[0].duration, foodTypes[0].foodValue, foodTypes[0].foodScaleValue, foodTypes[0].color);
+            }
+            else if (rand < redChance + whiteChance)
+            {
+                SpawnFood(foodTypes[1].duration, foodTypes[1].foodValue, foodTypes[1].foodScaleValue, foodTypes[1].color);
+            }
+            else
+            {
+                SpawnFood(foodTypes[2].duration, foodTypes[2].foodValue, foodTypes[2].foodScaleValue, foodTypes[2].color);
+            }
             nextSpawnTime = Time.time + spawnRate;
         }
     }
